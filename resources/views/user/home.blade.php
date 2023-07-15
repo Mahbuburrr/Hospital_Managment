@@ -10,15 +10,15 @@
 
   <title>One Health - Medical Center HTML5 Template</title>
 
-  <link rel="stylesheet" href="../assets/css/maicons.css">
+  <link rel="stylesheet" href="user/assets/css/maicons.css">
 
-  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="user/assets/css/bootstrap.css">
 
-  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="user/assets/vendor/owl-carousel/css/owl.carousel.css">
 
-  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="user/assets/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="user/assets/css/theme.css">
 </head>
 <body>
 
@@ -84,6 +84,10 @@
             </li>
             @if(Route::has('login'))
             @auth
+            <li class="nav-item">
+              <a class="nav-link" style="color:green;" href="{{url('my_appointment')}}">My Appointment</a>
+            </li>
+           
               <x-app-layout>
       
               </x-app-layout>
@@ -103,7 +107,7 @@
     </nav>
   </header>
 
-  <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="page-hero bg-image overlay-dark" style="background-image: url(user/assets/img/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
@@ -156,7 +160,7 @@
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
             <div class="img-place custom-img-1">
-              <img src="../assets/img/bg-doctor.png" alt="">
+              <img src="user/assets/img/bg-doctor.png" alt="">
             </div>
           </div>
         </div>
@@ -172,18 +176,18 @@
  
  <!-- .page-section -->
 
-  <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
+  <div class="page-section banner-home bg-image" style="background-image: url(user/assets/img/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
       <div class="row align-items-center">
         <div class="col-lg-4 wow zoomIn">
           <div class="img-banner d-none d-lg-block">
-            <img src="../assets/img/mobile_app.png" alt="">
+            <img src="user/assets/img/mobile_app.png" alt="">
           </div>
         </div>
         <div class="col-lg-8 wow fadeInRight">
           <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
-          <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
-          <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
+          <a href="#"><img src="user/assets/img/google_play.svg" alt=""></a>
+          <a href="#" class="ml-2"><img src="user/assets/img/app_store.svg" alt=""></a>
         </div>
       </div>
     </div>
@@ -241,15 +245,23 @@
     </div>
   </footer>
 
-<script src="../assets/js/jquery-3.5.1.min.js"></script>
+<script src="user/assets/js/jquery-3.5.1.min.js"></script>
 
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="user/assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="user/assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-<script src="../assets/vendor/wow/wow.min.js"></script>
+<script src="user/assets/vendor/wow/wow.min.js"></script>
 
-<script src="../assets/js/theme.js"></script>
+<script src="user/assets/js/theme.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('status'))
+    <script>
+
+      swal("{{session('status')}}")
+    </script>
+    @endif
   
 </body>
 </html>

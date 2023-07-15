@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ Route::get('/',[HomeController::class,"index"]);
 
 
 Route::get('/home',[HomeController::class,"redirect"]);
+Route::get('/add_doctor_view',[AdminController::class,"addview"]);
+Route::post('/upload_doctor',[AdminController::class,"doctordata"]);
+Route::post('/appointment',[AdminController::class,"appointment"]);
+Route::get('/my_appointment',[HomeController::class,"myappointment"]);
+Route::get('/cancel_appoint/{id}',[HomeController::class,"cancel_appoint"]);
 
 Route::middleware([
     'auth:sanctum',

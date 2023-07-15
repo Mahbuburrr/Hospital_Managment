@@ -1,0 +1,23 @@
+.container input{
+
+    color:black; 
+    border-radius: 10px;
+}
+.container{
+    margin-top: 150px;
+}
+.form{
+
+    padding: 5px;
+}
+.container select{
+    color:black;
+    width: 200px;
+    border-radius: 10px;
+   
+}
+ label{
+    display: inline-block;
+    width:200px;
+    
+}
