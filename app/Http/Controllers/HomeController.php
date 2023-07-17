@@ -56,4 +56,5 @@ class HomeController extends Controller
     $data->delete();
     return redirect()->back()->with('status',"Appointment is deleted successfully");
    }
+   
 }

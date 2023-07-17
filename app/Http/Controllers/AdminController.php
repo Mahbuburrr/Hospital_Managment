@@ -51,4 +51,59 @@ class AdminController extends Controller
       return redirect()->back()->with('status',"Appoint Request is successful,We will contact with you soon");
    
    }
+   public  function showappointments()
+   {
+      $data=Appointment::all();
+      return view('admin.include.showappointments',compact('data'));
+   }
+   public function approved($id)
+   {
+      $data=Appointment::find($id);
+      $data->status="approved";
+      $data->save();
+      return redirect()->back()->with('status','Appointment is Approved');
+   }
+   public function cancel($id)
+   {
+      $data=Appointment::find($id);
+      $data->status="canceled";
+      $data->save();
+      return redirect()->back()->with('status','Appointment is cancel');
+   }
+   public function showdoctor()
+   {
+      $data=Doctor::all();
+      return view('admin.include.doctor',compact('data'));
+   }
+   public function deletedoctor($id)
+   {
+      $data=Doctor::find($id);
+      $data->delete();
+      
+      return redirect()->back()->with('status','Doctor Deleted Successfully');
+   }
+   public function updatedoctor($id)
+   {
+      $data=Doctor::find($id);
+      return view('admin.include.updatedoctor',compact('data'));
+   }
+   public function editdoctor(Request $request,$id)
+   {
+       $data=Doctor::find($id);
+       
+       if($request->hasFile('image')){
+
+         $file=$request->file('image');
+         $ext=$file->getClientOriginalExtension();
+         $filename=time().'.'.$ext;
+         $file->move('assets/uploads/doctors/',$filename);
+         $data->image=$filename;
+      }
+      $data->name=$request->name;
+      $data->phone=$request->phone;
+      $data->speciality=$request->speciality;
+      $data->room=$request->room;
+       $data->update();
+       return redirect()->back();
+   }
 }

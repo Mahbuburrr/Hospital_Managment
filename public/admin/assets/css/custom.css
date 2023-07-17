@@ -5,7 +5,16 @@
 }
 .container{
     margin-top: 150px;
+    margin-right: 200px;
+   
 }
+.scroll-bar{
+    height: 200px;
+    width: 1000px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
 .form{
 
     padding: 5px;
@@ -21,3 +30,4 @@
     width:200px;
     
 }
+
